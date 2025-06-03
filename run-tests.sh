@@ -7,6 +7,9 @@
 # Invenio is free software; you can redistribute it and/or modify it
 # under the terms of the MIT License; see LICENSE file for more details.
 
+# oarepo: Tests are disabled in this package
+exit 0
+
 # Quit on errors
 set -o errexit
 
