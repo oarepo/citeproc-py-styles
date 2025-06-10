@@ -28,13 +28,20 @@
     <terms>
       <term name="from">z</term>
       <term name="no date">b.r.</term>
+      <term name="anonymous">Anon.</term>
+      <term name="and">a</term>
+      <term name="in">v</term>
+      <term name="online">online</term>
+      <term name="accessed">staženo:</term>
+      <term name="retrieved">disponible</term>
+      <term name="from">z</term>
     </terms>
   </locale>
   <macro name="author">
     <names variable="author">
-      <name and="text" name-as-sort-order="first" sort-separator=", " delimiter="; " delimiter-precedes-last="never">
+      <name and="text" name-as-sort-order="all" sort-separator=", " delimiter="; " delimiter-precedes-last="never" demote-non-dropping-particle="display-and-sort">
         <name-part name="family" text-case="uppercase"/>
-        <name-part name="given"/>
+        <name-part name="given" text-case="original"/>
       </name>
     </names>
   </macro>
@@ -192,7 +199,7 @@
   <macro name="title">
     <choose>
       <if type="book thesis map motion_picture song manuscript broadcast report" match="any">
-        <text variable="title" font-style="italic" suffix=". "/>
+        <text variable="title" font-style="italic"/>
       </if>
       <else-if type="paper-conference speech chapter post" match="any">
         <text variable="title" suffix=". "/>
@@ -320,7 +327,7 @@
           </if>
           <else>
             <!-- sine loco (s.l.)-->
-            <text value="b.m." text-case="capitalize-first"/>
+            <!-- <text value="b.m." text-case="capitalize-first"/> -->
           </else>
         </choose>
       </else>
@@ -473,7 +480,7 @@
         <!-- Specific Formats -->
         <if type="book" match="any">
           <group delimiter=". " suffix=". ">
-            <group delimiter=" ">
+            <group delimiter=", ">
               <group delimiter=". ">
                 <text macro="title"/>
                 <text macro="genre"/>
@@ -482,7 +489,7 @@
                 <text macro="publisher-info"/>
                 <text macro="collection"/>
               </group>
-              <text macro="accessed"/>
+              <text macro="year-date"/>
             </group>
             <text macro="isbn"/>
           </group>
@@ -498,7 +505,7 @@
             <text macro="publisher-info"/>
             <group delimiter=" ">
               <text macro="collection"/>
-              <text macro="accessed"/>
+              <text macro="year-date"/>
             </group>
             <text macro="isbn"/>
           </group>
@@ -511,7 +518,7 @@
             <text macro="edition"/>
             <group delimiter=" ">
               <text macro="publisher-info"/>
-              <text macro="accessed"/>
+              <text macro="year-date"/>
             </group>
             <text macro="collection"/>
             <text macro="isbn"/>
@@ -526,7 +533,7 @@
               <group delimiter=", ">
                 <text macro="issue"/>
               </group>
-              <text macro="accessed"/>
+              <text macro="year-date"/>
             </group>
             <text macro="issn"/>
           </group>
@@ -542,7 +549,7 @@
                 <text macro="collection"/>
                 <text macro="page"/>
               </group>
-              <text macro="accessed"/>
+              <text macro="year-date"/>
             </group>
             <text macro="isbn"/>
           </group>
@@ -554,7 +561,7 @@
             <text macro="genre"/>
             <text macro="publisher-place"/>
             <group delimiter=" ">
-              <text macro="accessed"/>
+              <text macro="year-date"/>
             </group>
             <text macro="page"/>
           </group>
@@ -569,7 +576,7 @@
                 <text macro="publisher-info"/>
                 <text macro="page"/>
               </group>
-              <text macro="accessed"/>
+              <text macro="year-date"/>
             </group>
             <text macro="collection"/>
             <text macro="isbn"/>
@@ -581,7 +588,7 @@
             <text macro="title"/>
             <group delimiter=" ">
               <text macro="publisher-place"/>
-              <text macro="accessed"/>
+              <text macro="year-date"/>
             </group>
             <text macro="genre"/>
             <text macro="publisher"/>
@@ -620,7 +627,7 @@
           <text macro="number" suffix=". "/>
           <text macro="title" suffix=". "/>
           <text macro="publisher" suffix=". "/>
-          <text macro="accessed" suffix=". "/>
+          <text macro="date" suffix=". "/>
         </else-if>
         <else-if type="report">
           <group delimiter=". " suffix=". ">
@@ -635,7 +642,7 @@
             </group>
             <group delimiter=" ">
               <text macro="publisher-info"/>
-              <text macro="accessed"/>
+              <text macro="year-date"/>
             </group>
           </group>
           <text macro="url"/>
@@ -645,7 +652,7 @@
           <text macro="genre" suffix=". "/>
           <text macro="edition" suffix=". "/>
           <text macro="publisher-place" suffix=", "/>
-          <text macro="accessed" suffix=". "/>
+          <text macro="year-date" suffix=". "/>
           <text macro="collection" suffix=". "/>
           <text macro="url"/>
         </else-if>
